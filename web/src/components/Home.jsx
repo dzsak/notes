@@ -1,6 +1,19 @@
+import { useQuery } from "react-query";
+import { fetchData } from "../api/service";
 import Card from "./Card"
 
 const Home = () => {
+  const {
+    data: data,
+    isLoading,
+    isError,
+    error,
+  } = useQuery("data", fetchData);
+
+  console.log(data)
+  console.log(isLoading)
+  console.log(isError)
+  console.log(error)
   return (
     <div className="min-h-full">
       <header className="py-10">

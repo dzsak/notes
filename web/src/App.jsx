@@ -4,10 +4,13 @@ import { Header } from './components/Header';
 import { Dashboard } from './components/Dashboard';
 import { About } from './components/About';
 import { NoMatch } from './components/NoMatch';
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Router>
         <Routes>
           <Route path="/" element={
@@ -36,7 +39,7 @@ const App = () => {
           } />
         </Routes>
       </Router>
-    </>
+    </QueryClientProvider>
   );
 }
 
