@@ -3,11 +3,12 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { classNames } from '../utils'
 import { Link } from 'react-router-dom'
+import DefaultAvatar from '../assets/default_avatar.png';
 
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',
-  imageUrl: 'https://avatars.githubusercontent.com/u/86593861?v=4',
+  imageUrl: DefaultAvatar,
 }
 
 const navigation = [
@@ -31,15 +32,8 @@ export function Header() {
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
               <div className="flex h-16 items-center justify-between px-4 sm:px-0">
                 <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <img
-                      className="h-8 w-8"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Your Company"
-                    />
-                  </div>
                   <div className="hidden md:block">
-                    <div className="ml-10 flex items-baseline space-x-4">
+                    <div className="flex items-baseline space-x-4">
                       {navigation.map((item) => (
                         <Link
                           key={item.name}
@@ -60,15 +54,6 @@ export function Header() {
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
-                    <button
-                      type="button"
-                      className="relative rounded-full bg-blue-700 p-1 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800"
-                    >
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-3">
                       <div>
@@ -110,7 +95,7 @@ export function Header() {
                 </div>
                 <div className="-mr-2 flex md:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-blue-800 p-2 text-gray-400 hover:bg-blue-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open main menu</span>
                     {open ? (

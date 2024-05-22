@@ -5,7 +5,7 @@ import { Dashboard } from './components/Dashboard';
 import { About } from './components/About';
 import { NoMatch } from './components/NoMatch';
 
-function App() {
+const App = () => {
   return (
     <>
       <Router>
