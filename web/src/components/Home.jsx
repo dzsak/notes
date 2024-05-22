@@ -1,6 +1,7 @@
-import { useQuery } from "react-query";
-import { fetchData } from "../api/service";
+import { useQuery, useMutation } from "react-query";
+import { getData, postData } from "../api/service";
 import Card from "./Card"
+import { useEffect } from "react";
 
 const Home = () => {
   const {
@@ -8,12 +9,23 @@ const Home = () => {
     isLoading,
     isError,
     error,
-  } = useQuery("data", fetchData);
+  } = useQuery("data", getData);
+
+  const { mutate, mutateLoading } = useMutation(postData, {
+    onSuccess: (data) => console.log(data),
+  });
+
+  useEffect(() => {
+    mutate("")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   console.log(data)
   console.log(isLoading)
   console.log(isError)
   console.log(error)
+
+  console.log(mutateLoading)
   return (
     <div className="min-h-full">
       <header className="py-10">

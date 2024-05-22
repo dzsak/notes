@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchData = () => get("/api/data")
+export const getData = () => get("/api/data")
 
 export const postData = (body) => post("/api/data", body)
 
