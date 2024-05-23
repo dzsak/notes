@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import { Header } from './components/Header';
+import Login from './components/Login';
+import Header from './components/Header';
 import { Dashboard } from './components/Dashboard';
 import { About } from './components/About';
 import { NoMatch } from './components/NoMatch';
@@ -13,6 +14,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Routes>
+        <Route path="/login" element={<Login />} />
           <Route path="/" element={
             <>
               <Header />

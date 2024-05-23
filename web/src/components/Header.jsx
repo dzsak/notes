@@ -23,7 +23,7 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 
-export function Header() {
+const Header = () => {
   return (
     <div>
       <Disclosure as="nav" className="bg-blue-700">
@@ -163,3 +163,5 @@ export function Header() {
     </div>
   )
 }
+
+export default Header;
