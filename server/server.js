@@ -2,7 +2,14 @@ require('dotenv').config()
 const express = require('express')
 const axios = require('axios');
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
+
+const logger = function(req, res, next) {
+  console.log(req.method + ' ' +req.url + ' ' + new Date());
+  next();
+}
+app.use(logger)
+app.use(express.static('web/build'))
 
 // Initiates the Google Login flow
 app.get('/auth/google', (req, res) => {
