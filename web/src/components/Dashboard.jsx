@@ -1,4 +1,4 @@
-export function Dashboard() {
+const Dashboard = () => {
   return (
     <div className="min-h-full">
       <header className="py-10">
@@ -16,3 +16,5 @@ export function Dashboard() {
     </div>
   )
 }
+
+export default Dashboard;

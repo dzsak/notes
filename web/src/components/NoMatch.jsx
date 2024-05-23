@@ -1,4 +1,4 @@
-export function NoMatch() {
+const NoMatch = () => {
   return (
     <div className="min-h-full">
       <header className="py-10">
@@ -16,3 +16,5 @@ export function NoMatch() {
     </div>
   )
 }
+
+export default NoMatch;

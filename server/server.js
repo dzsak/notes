@@ -9,7 +9,10 @@ const logger = function(req, res, next) {
   next();
 }
 app.use(logger)
-app.use(express.static('web/build'))
+app.use("/", express.static('web/build'))
+app.use("/login", express.static('web/build'))
+app.use("/dashboard", express.static('web/build'))
+app.use("/about", express.static('web/build'))
 
 // Initiates the Google Login flow
 app.get('/auth/google', (req, res) => {

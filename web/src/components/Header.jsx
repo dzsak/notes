@@ -18,7 +18,7 @@ const navigation = [
 ]
 
 const userNavigation = [
-  { name: 'Sign out', href: '#' },
+  { name: 'Sign out', href: '/logout' },
 ]
 
 const Header = () => {
