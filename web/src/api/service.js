@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getData = () => get("/api/data")
+export const getTest = () => get("/api/user")
 
-export const postData = (body) => post("/api/data", body)
+export const signup = (body) => post("/api/auth/signup", body)
 
 const get = async (path) => {
   try {

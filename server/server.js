@@ -22,10 +22,12 @@ mongoose
 
 const app = express()
 
-// app.use("/", express.static('web/build'))
-// app.use("/login", express.static('web/build'))
-// app.use("/dashboard", express.static('web/build'))
-// app.use("/about", express.static('web/build'))
+app.use("/", express.static('web/build'))
+app.use("/signup", express.static('web/build'))
+app.use("/login", express.static('web/build'))
+app.use("/dashboard", express.static('web/build'))
+app.use("/about", express.static('web/build'))
+app.use("/profile", express.static('web/build'))
 app.use(cors())
 app.use(function (req, res, next) {
   console.log(req.method + ' ' + req.url + ' ' + new Date());
