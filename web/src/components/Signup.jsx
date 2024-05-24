@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation } from "react-query";
 import { Link, useNavigate } from 'react-router-dom';
 import { signup } from "../api/service";
+import GoogleAuth from './GoogleAuth';
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
@@ -26,7 +27,15 @@ const Signup = () => {
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl underline text-center">Sign up</h1>
+          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl underline text-center">Create your Account</h1>
+          <GoogleAuth>
+            Sign up with Google
+          </GoogleAuth>
+          <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-200 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+            <p className="mx-4 mb-0 text-center text-neutral-700">
+              or
+            </p>
+          </div>
           <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
             <div className="relative w-full min-w-[200px] h-10">
               <input
@@ -70,7 +79,7 @@ const Signup = () => {
             <button
               disabled={isLoading}
               type="submit"
-              className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-500"
+              className="w-full text-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-500 hover:bg-blue-600"
             >
               {isLoading ? 'Loading...' : 'Create an account'}
             </button>
@@ -78,7 +87,7 @@ const Signup = () => {
           <p className="text-sm font-light text-gray-800 text-center">
               Already have an account?
               <Link to='/login'>
-                <span className='font-medium text-blue-600 hover:underline'> Login here</span>
+                <span className='font-medium text-blue-500 hover:text-blue-600 hover:underline'> Login here</span>
               </Link>
             </p>
             <p className="text-red-500 font-medium mt-5 text-center">{isError && 'Something went wrong!'}</p>
