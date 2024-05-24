@@ -6,6 +6,8 @@ export const signup = (body) => post("/api/auth/signup", body)
 
 export const login = (body) => post("/api/auth/login", body)
 
+export const googleAuth = (body) => post("/api/auth/google", body)
+
 const get = async (path) => {
   try {
     const { data } = await axios.get(path);
