@@ -1,18 +1,16 @@
-/* eslint-disable no-unused-vars */
-import { useMutation } from "react-query";
 import { useState } from 'react';
+import { useMutation } from "react-query";
 import { Link, useNavigate } from 'react-router-dom';
 import { signup } from "../api/service";
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
-  const { mutate, isLoading } = useMutation(signup, {
-    onSuccess: (data) => navigate("/login"),
-    onError: (error) => setError(true),
+  const { mutate, isError, isLoading } = useMutation(signup, {
+    onSuccess: () => navigate("/login"),
+    onError: (error) => console.log(error),
   });
 
   const handleChange = (e) => {
@@ -21,12 +19,8 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(false)
     mutate(formData)
   };
-
-
-  console.log(isLoading)
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -87,7 +81,7 @@ const Signup = () => {
                 <span className='font-medium text-blue-600 hover:underline'> Login here</span>
               </Link>
             </p>
-            <p className="text-red-500 font-medium mt-5 text-center">{error && 'Something went wrong!'}</p>
+            <p className="text-red-500 font-medium mt-5 text-center">{isError && 'Something went wrong!'}</p>
         </div>
       </div>
     </div>

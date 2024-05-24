@@ -4,6 +4,8 @@ export const getTest = () => get("/api/user")
 
 export const signup = (body) => post("/api/auth/signup", body)
 
+export const login = (body) => post("/api/auth/login", body)
+
 const get = async (path) => {
   try {
     const { data } = await axios.get(path);

@@ -34,3 +34,4 @@ Here are some ideas and features I plan to implement as I continue working on th
 - [ ] Notifications on frontend
 - [ ] Message board on forntend
 - [ ] Live chat on frontend
+- [ ] Implement in React Native
