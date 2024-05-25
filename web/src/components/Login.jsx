@@ -71,7 +71,7 @@ const Login = () => {
               {isLoading ? 'Loading...' : 'Sign in to your account'}
             </button>
           </form>
-          <p className="text-sm font-light text-gray-800 text-center">
+          <p className="text-sm font-light text-slate-800 text-center">
             Don&lsquo;t have an account yet?
             <Link to='/signup'>
               <span className='font-medium text-blue-500 hover:text-blue-600 hover:underline'> Sign up</span>

@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Navigate
-import Home from './components/Home';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import CardTable from './components/CardTable';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Header from './components/Header';
-import Dashboard from './components/Dashboard';
-import About from './components/About';
-import NoMatch from './components/NoMatch';
+import Chat from './components/Chat';
+import Todos from './components/Todos';
+import MessageBoard from './components/MessageBoard';
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
@@ -14,35 +14,36 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Header />
-                <Home />
-              </>
-            } />
-            <Route path="/dashboard" element={
-              <>
-                <Header />
-                <Dashboard />
-              </>
-            } />
-            <Route path="/about" element={
-              <>
-                <Header />
-                <About />
-              </>
-            } />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            {/* <Route path="*" element={<Navigate to="/login" replace />}></Route> */}
-            <Route path="/*" element={
-              <>
-                <Header />
-                <NoMatch />
-              </>
-            } />
-          </Routes>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Header />
+              <CardTable />
+            </>
+          } />
+          <Route path="/todos" element={
+            <>
+              <Header />
+              <Todos />
+            </>
+          } />
+          <Route path="/message-board" element={
+            <>
+              <Header />
+              <MessageBoard />
+            </>
+          } />
+          <Route path="/chat" element={
+            <>
+              <Header />
+              <Chat />
+            </>
+          } />
+          <Route path="/*" element={<Navigate to="/" replace />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="*" element={<Navigate to="/login" replace />}></Route> */}
+        </Routes>
       </Router>
     </QueryClientProvider>
   );

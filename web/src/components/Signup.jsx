@@ -27,7 +27,7 @@ const Signup = () => {
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl underline text-center">Create your Account</h1>
+          <h1 className="text-xl font-bold leading-tight tracking-tight text-slate-900 md:text-2xl underline text-center">Create your Account</h1>
           <GoogleAuth>
             Sign up with Google
           </GoogleAuth>
@@ -84,13 +84,13 @@ const Signup = () => {
               {isLoading ? 'Loading...' : 'Create an account'}
             </button>
           </form>
-          <p className="text-sm font-light text-gray-800 text-center">
-              Already have an account?
-              <Link to='/login'>
-                <span className='font-medium text-blue-500 hover:text-blue-600 hover:underline'> Login here</span>
-              </Link>
-            </p>
-            <p className="text-red-500 font-medium mt-5 text-center">{isError && 'Something went wrong!'}</p>
+          <p className="text-sm font-light text-slate-800 text-center">
+            Already have an account?
+            <Link to='/login'>
+              <span className='font-medium text-blue-500 hover:text-blue-600 hover:underline'> Login here</span>
+            </Link>
+          </p>
+          <p className="text-red-500 font-medium mt-5 text-center">{isError && 'Something went wrong!'}</p>
         </div>
       </div>
     </div>

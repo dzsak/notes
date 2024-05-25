@@ -2,7 +2,7 @@
 // import { getData } from "../api/service";
 import Card from "./Card"
 
-const Home = () => {
+const CardTable = () => {
   // const {
   //   data: data,
   //   isLoading,
@@ -14,7 +14,7 @@ const Home = () => {
     <div className="min-h-full">
       <header className="py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Board</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900">Card table</h1>
         </div>
       </header>
       <main>
@@ -32,4 +32,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default CardTable;
