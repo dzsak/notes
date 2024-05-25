@@ -34,10 +34,7 @@ const Header = () => {
                 <div className="hidden md:block">
                   <div className="flex items-baseline space-x-4">
                     {navigation.map((item) => {
-                      let current = window.location.href.endsWith(item.href)
-                      if (window.location.href === "/" && item.href === "/") {
-                        current = true
-                      }
+                      const current = window.location.pathname === item.href
                       return <Link
                         key={item.name}
                         to={item.href}
@@ -79,15 +76,16 @@ const Header = () => {
                         {userNavigation.map((item) => (
                           <Menu.Item key={item.name}>
                             {({ active }) => (
-                              <a
-                                href={item.href}
+                              <Link
+                                key={item.href}
+                                to={item.href}
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm text-slate-700'
                                 )}
                               >
                                 {item.name}
-                              </a>
+                              </Link>
                             )}
                           </Menu.Item>
                         ))}
@@ -114,10 +112,7 @@ const Header = () => {
           <Disclosure.Panel className="border-b border-slate-300 md:hidden">
             <div className="space-y-1 px-2 py-3 sm:px-3">
               {navigation.map((item) => {
-                let current = window.location.href.endsWith(item.href)
-                if (window.location.href === "/" && item.href === "/") {
-                  current = true
-                }
+                const current = window.location.pathname === item.href
                 return <Link
                   key={item.name}
                   to={item.href}

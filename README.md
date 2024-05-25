@@ -12,6 +12,12 @@ GOOGLE_CLIENT_SECRET = XXXXXXXXXXXXXXXX
 REDIRECT_URI = 'http://localhost:3000/auth/google/callback'
 ```
 
+Also need to put an env file with firebase api key to the web folder.
+
+```
+VITE_FIREBASE_API_KEY="<firebase_api_key>"
+```
+
 ### Start local server
 
 To start our app for testing/developer just simply type the following command in the command line:
@@ -33,5 +39,5 @@ Here are some ideas and features I plan to implement as I continue working on th
 - [ ] Github actions (test, build, publish)
 - [ ] Notifications on frontend
 - [ ] Message board on forntend
-- [ ] Live chat on frontend
+- [ ] Chat on frontend
 - [ ] Implement in React Native

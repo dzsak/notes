@@ -21,9 +21,9 @@ const CardTable = () => {
         <div className="mx-auto max-w-7xl pb-12">
           <div className="min-h-screen px-5 py-6 sm:px-6">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <Card title="To do" />
-              <Card title="Doing" />
-              <Card title="Done" />
+              <Card title="To do" type="todo" />
+              <Card title="Doing" type="doing" />
+              <Card title="Done" type="done" />
             </div>
           </div>
         </div>

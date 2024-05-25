@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Chat from './components/Chat';
 import Todos from './components/Todos';
 import MessageBoard from './components/MessageBoard';
+import Profile from './components/Profile';
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
@@ -39,10 +40,18 @@ const App = () => {
               <Chat />
             </>
           } />
+          <Route path="/profile" element={
+            <>
+              <Header />
+              <Profile />
+            </>
+          } />
           <Route path="/*" element={<Navigate to="/" replace />} />
+
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="*" element={<Navigate to="/login" replace />}></Route> */}
+
         </Routes>
       </Router>
     </QueryClientProvider>
