@@ -1,7 +1,7 @@
 import express from 'express';
-import axios from 'axios';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
@@ -30,6 +30,7 @@ app.use("/message-board", express.static('web/build'))
 app.use("/chat", express.static('web/build'))
 app.use("/profile", express.static('web/build'))
 app.use(cors())
+app.use(cookieParser());
 app.use(function (req, res, next) {
   console.log(req.method + ' ' + req.url + ' ' + new Date());
   next();
