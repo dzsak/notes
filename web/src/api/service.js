@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getTest = () => get("/api/user")
+export const getUser = () => get("/api/user")
 
 export const signup = (body) => post("/api/auth/signup", body)
 

@@ -11,6 +11,7 @@ export const validateJWT = async (req, res, next) => {
   try {
     const user = await User.findById(decoded.id);
     if (!user) return next(errorHandler(400, 'Not authorized'));
+    req.user = user;
     next();
   } catch (error) {
     return next(error);
