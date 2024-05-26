@@ -1,4 +1,4 @@
-const Emtpy = ({children}) => {
+const Empty = ({children}) => {
   return (
     <div className='block max-w-sm border-dashed border border-sky-500 bg-sky-100 rounded-md p-4'>
       {children}
@@ -6,4 +6,4 @@ const Emtpy = ({children}) => {
   )
 };
 
-export default Emtpy;
+export default Empty;

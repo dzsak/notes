@@ -2,7 +2,7 @@
 
 ### Description
 
-This project is a personal practice Todo application with multi-user handling, aimed at enhancing my programming skills. It features a Node.js backend and a React frontend, serving as a hands-on learning experience in full-stack web development.
+This project is a personal practice Todo application with multi-user handling, aimed at enhancing my programming skills. It features a Node.js backend using MongoDB and Express. A React frontend using Vite, TailwindCSS, serving as a hands-on learning experience in full-stack web development.
 
 You need to just put your google client id and secret in env file.
 
