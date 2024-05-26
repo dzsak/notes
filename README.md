@@ -35,6 +35,7 @@ This project is primarily for my personal practice and learning. Feel free to ex
 
 Here are some ideas and features I plan to implement as I continue working on this project:
 
+- [ ] Formik for forms
 - [ ] Dockerize
 - [ ] Github actions (test, build, publish)
 - [ ] Notifications on frontend
