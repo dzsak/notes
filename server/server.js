@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
+import { validateJWT } from './middleware/auth.middleware.js';
 import dotenv from 'dotenv';
 dotenv.config()
 
@@ -46,8 +47,8 @@ app.get('/', (req, res) => {
   res.sendStatus(200)
 })
 
-app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/user', validateJWT, userRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

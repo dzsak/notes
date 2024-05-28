@@ -1,4 +1,4 @@
-import { PlusIcon, PencilIcon } from '@heroicons/react/24/outline'
+import { PencilIcon, PlusIcon } from '@heroicons/react/24/outline'
 
 const Card = ({ title, type }) => {
   return (

@@ -4,13 +4,13 @@ import { errorHandler } from '../utils/error.js';
 
 export const validateJWT = async (req, res, next) => {
   const token = req.cookies.access_token
-  if (!token) return next(errorHandler(400, 'Not authorized'));
+  if (!token) return next(errorHandler(401, 'Not authorized'));
 
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
   try {
     const user = await User.findById(decoded.id);
-    if (!user) return next(errorHandler(400, 'Not authorized'));
+    if (!user) return next(errorHandler(401, 'Not authorized'));
     req.user = user;
     next();
   } catch (error) {

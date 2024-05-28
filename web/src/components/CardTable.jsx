@@ -1,15 +1,6 @@
-// import { useQuery } from "react-query";
-// import { getData } from "../api/service";
 import Card from "./Card"
 
 const CardTable = () => {
-  // const {
-  //   data: data,
-  //   isLoading,
-  //   isError,
-  //   error,
-  // } = useQuery("data", getData);
-
   return (
     <div className="min-h-full">
       <header className="py-10">

@@ -1,9 +1,10 @@
-import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { classNames } from '../utils'
+import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+
 import DefaultAvatar from '../assets/default_avatar.png';
+import { classNames } from '../utils'
 
 const user = {
   name: 'Tom Cook',

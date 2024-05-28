@@ -13,7 +13,6 @@ const get = async (path) => {
     const { data } = await axios.get(path);
     return data;
   } catch (error) {
-    console.warn("Cannot get data");
     throw error.response;
   }
 };
@@ -30,7 +29,6 @@ const post = async (path, body) => {
       });
     return data;
   } catch (error) {
-    console.warn("Cannot post data")
     throw error.response;
   }
 }
