@@ -1,20 +1,25 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+
+import BasicRequests from "./components/BasicRequests";
 import CardTable from './components/CardTable';
-import Signup from './components/Signup';
-import Login from './components/Login';
-import Header from './components/Header';
 import Chat from './components/Chat';
-import Todos from './components/Todos';
+import Header from './components/Header';
+import Login from './components/Login';
 import MessageBoard from './components/MessageBoard';
 import Profile from './components/Profile';
-import { QueryClient, QueryClientProvider } from "react-query";
-
-const queryClient = new QueryClient();
+import Signup from './components/Signup';
+import Todos from './components/Todos';
 
 const App = () => {
+  const queryClient = new QueryClient();
+
+  console.log(document.cookie)
+
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
+        <BasicRequests />
         <Routes>
           <Route path="/" element={
             <>
@@ -47,11 +52,9 @@ const App = () => {
             </>
           } />
           <Route path="/*" element={<Navigate to="/" replace />} />
-
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="*" element={<Navigate to="/login" replace />}></Route> */}
-
         </Routes>
       </Router>
     </QueryClientProvider>
