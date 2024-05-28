@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { MongoMemoryServer } from 'mongodb-memory-server';
+import cardRoutes from './routes/card.route.js';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import { validateJWT } from './middleware/auth.middleware.js';
@@ -49,6 +50,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', validateJWT, userRoutes);
+app.use('/api/cards', validateJWT, cardRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
