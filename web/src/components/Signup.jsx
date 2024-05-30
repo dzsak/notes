@@ -1,26 +1,31 @@
 import { useState } from 'react';
-import { useMutation } from "react-query";
 import { Link, useNavigate } from 'react-router-dom';
-import { signup } from "../api/service";
+
 import GoogleAuth from './GoogleAuth';
 
-const Signup = () => {
+const Signup = ({ queryClient }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [formData, setFormData] = useState({});
 
   const navigate = useNavigate();
-
-  const { mutate, isError, isLoading } = useMutation(signup, {
-    onSuccess: () => navigate("/login"),
-    onError: (error) => console.log(error),
-  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
+    setIsLoading(false)
+    setIsError(false)
     e.preventDefault();
-    mutate(formData)
+
+    queryClient.signup(formData)
+      .then(data => {
+        setIsLoading(false)
+        console.log(data)
+        navigate("/login")
+      },
+        () => setIsError(true))
   };
 
   return (
@@ -28,7 +33,7 @@ const Signup = () => {
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-slate-900 md:text-2xl underline text-center">Create your Account</h1>
-          <GoogleAuth>
+          <GoogleAuth queryClient={queryClient} >
             Sign up with Google
           </GoogleAuth>
           <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-200 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
