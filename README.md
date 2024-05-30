@@ -21,8 +21,7 @@ VITE_FIREBASE_API_KEY="<firebase_api_key>"
 To start our app for testing/developer just simply type the following command in the command line:
 
 ```javascript
-make build-web
-node server/server.js
+npm run build && node server/server.js
 ```
 
 ### Notes
