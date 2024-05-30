@@ -42,8 +42,8 @@ export const googleAuth = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email })
     if (user) {
-      const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET)
-      const { password: hashedPassword, ...rest } = validUser._doc;
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
+      const { password: hashedPassword, ...rest } = user._doc;
       const expiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // 1 day
 
       res.cookie('access_token', token, { httpOnly: true, expires: expiryDate }).status(200).json(rest)
@@ -76,3 +76,7 @@ export const googleAuth = async (req, res, next) => {
     next(error);
   }
 }
+
+export const signout = (req, res) => {
+  res.clearCookie('access_token').status(200).json('Signout success!');
+};
