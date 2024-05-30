@@ -44,7 +44,7 @@ const App = () => {
             <Route path="/todos" element={<Todos />} />
             <Route path="/message-board" element={<MessageBoard />} />
             <Route path="/chat" element={<Chat />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile user={user} />} />
             <Route path="/logout" element={<SignOut queryClient={queryClient} />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
