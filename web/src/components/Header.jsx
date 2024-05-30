@@ -57,7 +57,12 @@ const Header = ({ user }) => {
                       <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white">
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
-                        <img className="h-8 w-8 rounded-full" src={user.profilePicture} alt={DefaultAvatar} />
+                        <img
+                          className="h-8 w-8 rounded-full"
+                          src={user.profilePicture}
+                          alt={user.username}
+                          onError={(e) => { e.target.src = DefaultAvatar }}
+                        />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -126,7 +131,12 @@ const Header = ({ user }) => {
             <div className="border-t border-slate-300 pb-3 pt-4">
               <div className="flex items-center px-5">
                 <div className="flex-shrink-0">
-                  <img className="h-10 w-10 rounded-full" src={user.profilePicture} alt={DefaultAvatar} />
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={user.profilePicture}
+                    alt={user.username}
+                    onError={(e) => { e.target.src = DefaultAvatar }}
+                  />
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium leading-none text-slate-900">{user.username}</div>
