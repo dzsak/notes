@@ -7,6 +7,7 @@ import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import { validateJWT } from './middleware/auth.middleware.js';
 import dotenv from 'dotenv';
+import path from 'path';
 dotenv.config()
 
 // TODO connect a real MongoDB
@@ -23,13 +24,14 @@ mongoose
 
 const app = express()
 
-app.use("/", express.static('web/build'))
-app.use("/signup", express.static('web/build'))
-app.use("/login", express.static('web/build'))
-app.use("/todos", express.static('web/build'))
-app.use("/message-board", express.static('web/build'))
-app.use("/chat", express.static('web/build'))
-app.use("/profile", express.static('web/build'))
+app.use(express.static('web/build'))
+app.get('/', transferIndexFile)
+app.get('/signup', transferIndexFile)
+app.get('/login', transferIndexFile)
+app.get('/todos', transferIndexFile)
+app.get('/message-board', transferIndexFile)
+app.get('/chat', transferIndexFile)
+app.get('/profile', transferIndexFile)
 app.use(cors())
 app.use(cookieParser());
 app.use(function (req, res, next) {
@@ -59,3 +61,9 @@ app.use((err, req, res, next) => {
     statusCode,
   })
 })
+
+function transferIndexFile(req, res) {
+  const __dirname = path.resolve();
+
+  res.sendFile(path.join(__dirname, 'server', 'web', 'build', 'index.html'));
+}
