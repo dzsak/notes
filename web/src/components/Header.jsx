@@ -6,12 +6,6 @@ import { Link } from 'react-router-dom'
 import DefaultAvatar from '../assets/default_avatar.png';
 import { classNames } from '../utils'
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl: DefaultAvatar,
-}
-
 const navigation = [
   { name: 'Card table', href: '/', },
   { name: 'To-dos', href: '/todos' },
@@ -24,7 +18,9 @@ const userNavigation = [
   { name: 'Sign out', href: '/logout' },
 ]
 
-const Header = () => {
+const Header = ({ user }) => {
+  const pathname = window.location.pathname
+  // console.log(pathname)
   return (
     <Disclosure as="nav" className="sticky top-0 z-10 bg-sky-500 backdrop-filter backdrop-blur-lg bg-opacity-30">
       {({ open }) => (
@@ -35,7 +31,7 @@ const Header = () => {
                 <div className="hidden md:block">
                   <div className="flex items-baseline space-x-4">
                     {navigation.map((item) => {
-                      const current = window.location.pathname === item.href
+                      const current = pathname === item.href
                       return <Link
                         key={item.name}
                         to={item.href}
@@ -61,7 +57,7 @@ const Header = () => {
                       <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white">
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
-                        <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                        <img className="h-8 w-8 rounded-full" src={user.profilePicture} alt={DefaultAvatar} />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -113,7 +109,7 @@ const Header = () => {
           <Disclosure.Panel className="border-b border-slate-300 md:hidden">
             <div className="space-y-1 px-2 py-3 sm:px-3">
               {navigation.map((item) => {
-                const current = window.location.pathname === item.href
+                const current = pathname === item.href
                 return <Link
                   key={item.name}
                   to={item.href}
@@ -130,10 +126,10 @@ const Header = () => {
             <div className="border-t border-slate-300 pb-3 pt-4">
               <div className="flex items-center px-5">
                 <div className="flex-shrink-0">
-                  <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                  <img className="h-10 w-10 rounded-full" src={user.profilePicture} alt={DefaultAvatar} />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium leading-none text-slate-900">{user.name}</div>
+                  <div className="text-base font-medium leading-none text-slate-900">{user.username}</div>
                   <div className="text-sm font-medium leading-none text-slate-400">{user.email}</div>
                 </div>
               </div>

@@ -1,26 +1,30 @@
 import { useState } from 'react';
-import { useMutation } from "react-query";
-import { Link, useNavigate } from 'react-router-dom';
-import { login } from '../api/service';
+import { Link } from 'react-router-dom';
+
 import GoogleAuth from './GoogleAuth';
 
-const Login = () => {
+const Login = ({ queryClient }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [formData, setFormData] = useState({});
-
-  const navigate = useNavigate();
-
-  const { mutate, isError, isLoading } = useMutation(login, {
-    onSuccess: () => navigate("/"),
-    onError: (error) => console.log(error),
-  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = e => {
+    setIsLoading(true)
     e.preventDefault();
-    mutate(formData)
+
+    queryClient.login(formData)
+      .then(() => {
+        setIsLoading(false)
+        window.location.replace("/");
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setIsError(true);
+      })
   }
 
   return (
@@ -28,7 +32,7 @@ const Login = () => {
       <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-neutral-900 md:text-2xl underline text-center">Welcome back</h1>
-          <GoogleAuth>
+          <GoogleAuth queryClient={queryClient}>
             Log in with Google
           </GoogleAuth>
           <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-200 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">

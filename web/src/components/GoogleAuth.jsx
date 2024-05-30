@@ -1,29 +1,20 @@
-import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
+import { getAuth,GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
 import { app } from "../firebase";
-import { useMutation } from "react-query";
-import { googleAuth } from "../api/service";
-import { useNavigate } from "react-router-dom";
 
-const GoogleAuth = ({ children }) => {
-  const navigate = useNavigate();
-
-  const { mutate } = useMutation(googleAuth, {
-    onSuccess: () => navigate("/"),
-    onError: (error) => console.log(error),
-  });
-
+const GoogleAuth = ({ queryClient, children }) => {
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();
       const auth = getAuth(app);
 
       const result = await signInWithPopup(auth, provider)
-      mutate(JSON.stringify({
+      queryClient.googleAuth(JSON.stringify({
         name: result.user.displayName,
         email: result.user.email,
         photo: result.user.photoURL,
-        
-      }))
+      }));
+      window.location.replace("/");
     } catch (error) {
       console.log("could not login with google", error)
     }
