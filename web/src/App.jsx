@@ -6,9 +6,9 @@ import CardTable from './components/CardTable';
 import Chat from './components/Chat';
 import Header from './components/Header';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import MessageBoard from './components/MessageBoard';
 import Profile from './components/Profile';
+import SignOut from './components/SignOut';
 import Signup from './components/Signup';
 import Todos from './components/Todos';
 
@@ -45,7 +45,7 @@ const App = () => {
             <Route path="/message-board" element={<MessageBoard />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/logout" element={<Logout queryClient={queryClient} />} />
+            <Route path="/logout" element={<SignOut queryClient={queryClient} />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
         </>
