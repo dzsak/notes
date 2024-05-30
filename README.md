@@ -4,12 +4,10 @@
 
 This project is a personal practice Todo application with multi-user handling, aimed at enhancing my programming skills. It features a Node.js backend using MongoDB and Express. A React frontend using Vite, TailwindCSS, serving as a hands-on learning experience in full-stack web development.
 
-You need to just put your google client id and secret in env file.
+You need to generate a jwt secret at put in the env file in the root folder of the project.
 
 ```
-GOOGLE_CLIENT_ID = XXXXXXXXXX
-GOOGLE_CLIENT_SECRET = XXXXXXXXXXXXXXXX
-REDIRECT_URI = 'http://localhost:3000/auth/google/callback'
+JWT_SECRET = '<openssl rand -base64 24>'
 ```
 
 Also need to put an env file with firebase api key to the web folder.
