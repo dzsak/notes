@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import { MongoMemoryServer } from 'mongodb-memory-server';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import { validateJWT } from './middleware/auth.middleware.js';
@@ -10,11 +9,8 @@ import dotenv from 'dotenv';
 import path from 'path';
 dotenv.config()
 
-// TODO connect a real MongoDB
-const mongod = await MongoMemoryServer.create();
-
 mongoose
-  .connect(mongod.getUri())
+  .connect(process.env.MONGO)
   .then(() => {
     console.log('Connected to MongoDB')
   })

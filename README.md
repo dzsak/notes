@@ -4,10 +4,11 @@
 
 This project is a personal practice Todo application with multi-user handling, aimed at enhancing my programming skills. It features a Node.js backend using MongoDB and Express. A React frontend using Vite, TailwindCSS, serving as a hands-on learning experience in full-stack web development.
 
-You need to generate a jwt secret at put in the env file in the root folder of the project.
+You need to generate a jwt secret, get the mongo connection string url and put in the env file in the root folder of the project.
 
 ```
 JWT_SECRET = '<openssl rand -base64 24>'
+MONGO = "mongo-db-connection-string-uel"
 ```
 
 Also need to put an env file with firebase api key to the web folder.
