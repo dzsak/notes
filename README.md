@@ -47,7 +47,8 @@ This project is primarily for my personal practice and learning. Feel free to ex
 Here are some ideas and features I plan to implement as I continue working on this project:
 
 - [x] Dockerize
-- [ ] Github actions (test, build, publish)
+- [x] Github actions (build, publish)
+- [ ] Tests, run tests with github actions
 - [ ] Formik for forms
 - [ ] Notifications on frontend
 - [ ] Message board on forntend
