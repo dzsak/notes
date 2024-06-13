@@ -3,3 +3,5 @@ build-web:
 	rm -rf server/web/build
 	mkdir -p server/web/build
 	@cp -r web/build/* server/web/build
+
+PHONY: build-web
